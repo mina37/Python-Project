@@ -21,3 +21,11 @@ class usersforms(forms.ModelForm):
     class Meta:
         model = users
         fields = ['uname','password']
+class file(models.Model):
+    name=models.CharField("file name",max_length=50)
+    location = models.FileField(upload_to="documents/")
+class DocumentForm(forms.Form):
+    docfile = forms.FileField(
+        label='Select a file',
+        help_text='max. 42 megabytes'
+    )
