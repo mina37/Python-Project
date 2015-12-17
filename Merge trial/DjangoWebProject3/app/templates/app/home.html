@@ -1,0 +1,85 @@
+﻿{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+{% block head_title %}Welcome | {{user}}{% endblock %}
+
+<style>
+{% block style %}
+.navbar-static-top {
+	margin-bottom: 0px !important;
+}
+.jumbotron {
+	background-color:#0E3D14;
+	color: #FFF;
+}
+{% endblock %}
+</style>
+
+
+     
+{% block jumbotron %}
+
+<div class="jumbotron">
+ <div class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+		<h1>Ask &amp; Share</h1>
+		<p> Sign up now to start uploading your slides and ask questions </p>
+		<ul>made by :
+
+
+		<li> Mina Nabeeh Zaky sec3</li>
+		<li> Mina Sherif Henry sec3</li>
+		<li> Mina Bahig Hanna sec3</li>
+		<li> Michel Mina Zekry sec3</li>
+			
+		</ul>
+		<p>
+		<a class="btn btn-lg btn-primary" href="https://www.facebook.com/groups/892792400815703/?ref=bookmarks" role="button">Our Facebook Page  &raquo;</a>
+		</p>
+		</div>
+		<div class='col-sm-6' >
+		<img src='{% static "img/webapp-box.png"  %}'>
+
+		</div>
+		</div>
+	</div>
+ </div>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="row">
+
+  <div class="col-sm-3 pull-right">
+  	
+			<p class='lead text-align-center'>{{ title }}</p>
+
+			<form method='POST' action=''>{% csrf_token %}
+			{{ form|crispy }}
+
+			<input class='btn btn-primary' type='submit' value='Sign Up' />
+
+			</form>
+	</div>
+
+	<div class='col-sm-3'>
+<p class='lead text-align-center'>Built with Django &amp; Bootstrap</p>
+</div>
+
+<div class='col-sm-3'>
+<p class='lead text-align-center'>Created for Starters of all kinds. </p>
+</div>
+
+<div class='col-sm-3'>
+<p class='lead text-align-center'>Always Open Source</p>
+</div>
+
+
+</div>
+
+
+{% endblock %}
