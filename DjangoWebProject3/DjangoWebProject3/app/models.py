@@ -39,3 +39,9 @@ class pforms(forms.ModelForm):
      class Meta:
         model = people
         fields = ['fname','lname','uname','passwords','email']
+class comments(models.Model):
+    comment=models.CharField("Comment",max_length=255)
+class commentform(forms.ModelForm):
+    class Meta:
+        model = comments
+        fields = ['comment']

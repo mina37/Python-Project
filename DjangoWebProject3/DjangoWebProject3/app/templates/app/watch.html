@@ -5,11 +5,23 @@
 <html>
 
     <head>
-        <title>Rango</title>
+        <title>Share</title>
     </head>
 
     <body>
-        <img src="{% static "2015-11-18 19_04_16-Alarms & Clock.png" %}" alt="Picture of Rango" height="175" width="475"/> <!-- New line -->
+        <img src="../../static/{{bold}}.jpg" alt="Picture of Rango" /> <!-- New line -->
+        <ul>
+        {%for c in comm%}
+            <li>{{c.comment}}</li>
+        {%endfor%}
+         </ul>
+        <form method="post">
+
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">comment</button>
+
+    </form>
     </body>
 
 </html>

@@ -55,6 +55,8 @@
     <Content Include="app\templates\app\list of users.html" />
     <Content Include="app\templates\app\upload file dialogue.html" />
     <Content Include="app\templates\app\watch.html" />
+    <Content Include="app\templates\app\watch2.html" />
+    <Content Include="app\templates\app\watch3.html" />
     <Content Include="app\templates\app\WebPage1.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

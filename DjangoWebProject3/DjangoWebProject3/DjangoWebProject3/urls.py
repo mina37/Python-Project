@@ -17,7 +17,9 @@ from django.conf.urls.static import static
 urlpatterns = patterns('',
      # ((r'^', include('DjangoWebProject3.urls')),
 #) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),                  
-    # Examples:
+    ## Examples:
+    #url(r'watch','app.views.watch3',name='watch'),
+    #url(r'watch','app.views.watch2',name='watch'),
     url(r'watch','app.views.watch',name='watch'),
     url(r'upload','app.views.upload_file', name = 'upload'),
     url(r'^users$','app.views.user', name = 'users'),

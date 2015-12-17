@@ -20,8 +20,26 @@ def user(request):
     return render_to_response('app/list of users.html',{'usrs':usrs})
 
 def watch(request):
-    return render_to_response('app/watch.html',{'boldmessage':"2015-11-18 19_04_16-Alarms & Clock.png"})
-    #return 0
+    if request.method =='GET':
+        form=commentform()
+        c=comments.objects.all()
+        return render(request, 'app/watch.html',{'form':form,'comm':c,'bold':"mickey"})
+    elif request.method =='POST':
+        form=commentform(request.POST)
+        form.save()
+        return HttpResponseRedirect("/watch")
+
+#def watch2(request):
+#    c=comments.objects.all()
+#    return render_to_response('app/watch.htm',{'comment':c})
+
+#def watch(request):
+#    #f = file()
+#    #photo = f.objects.get(1)
+    
+
+#    return render_to_response('app/watch.html',{'bold':"2015-11-20_16_53_04-Settings"})
+#    #return 0
 
 def upload_file(request):
     # Handle file upload
