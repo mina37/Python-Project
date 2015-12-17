@@ -29,3 +29,13 @@ class DocumentForm(forms.Form):
         label='Select a file',
         help_text='max. 42 megabytes'
     )
+class people(models.Model):
+    fname=models.CharField("First Name",max_length = 50)
+    lname=models.CharField("Last Name",max_length = 50)
+    uname=models.CharField("User Name",max_length = 50)
+    passwords = models.CharField("Password",max_length = 50)
+    email=models.EmailField("Email")
+class pforms(forms.ModelForm):
+     class Meta:
+        model = people
+        fields = ['fname','lname','uname','passwords','email']

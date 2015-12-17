@@ -4,19 +4,24 @@ Definition of views.
 
 from django.shortcuts import render,render_to_response
 from django.http import HttpRequest
-from django.template import RequestContext
+from django.template import RequestContext, context
 from datetime import datetime
 from django.http.response import HttpResponse, HttpResponseRedirect
 from app.models import *
 from django.core.files.uploadhandler import FileUploadHandler
 from django.core.urlresolvers import reverse
 from app.views import DocumentForm
-
+from django.db import models
+from django.template.base import Template
 
 
 def user(request):
     usrs=users.objects.all()
     return render_to_response('app/list of users.html',{'usrs':usrs})
+
+def watch(request):
+    return render_to_response('app/watch.html',{'boldmessage':"2015-11-18 19_04_16-Alarms & Clock.png"})
+    #return 0
 
 def upload_file(request):
     # Handle file upload
@@ -43,13 +48,29 @@ def upload_file(request):
 
 
 def register(request):
+    res = ''
+    per=people.objects.all()
     if request.method=='GET':
-        form=usersforms();
+        form=pforms();
         return render(request, 'app/WebPage1.html',{'form':form})
     elif request.method =='POST':
-        form=usersforms(request.POST)
+        form=pforms(request.POST)
+        pers = people.objects.all()
+        #if form.Meta.model.email == people.email:
+        for p in pers:
+            for res in pforms(request.POST.get(4)):
+                res=res
+                if p.email == res:
+                    #res = "email already registered"
+                    #res = p.uname
+                    return render_to_response("app/WebPage1.html",{'res':"Hello"})
+                    return HttpResponseRedirect('')
         form.save()
-        return HttpResponseRedirect('')
+        res = pforms(request.POST)
+        
+        #return render_to_response("app/WebPage1.html",{'res':res})
+        return render_to_response("app/WebPage1.html",{'per':per})
+        return HttpResponseRedirect('/upload')
 
 
 def home(request):

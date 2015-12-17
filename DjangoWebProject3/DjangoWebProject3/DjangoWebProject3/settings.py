@@ -77,11 +77,14 @@ STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\', '/')
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '<workspace>/tango_with_django_project/templates/',
 )
+
+
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -168,3 +171,6 @@ LOGGING = {
 
 # Specify the default test runner.
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+
+

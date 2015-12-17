@@ -18,6 +18,7 @@ urlpatterns = patterns('',
      # ((r'^', include('DjangoWebProject3.urls')),
 #) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),                  
     # Examples:
+    url(r'watch','app.views.watch',name='watch'),
     url(r'upload','app.views.upload_file', name = 'upload'),
     url(r'^users$','app.views.user', name = 'users'),
     url(r'^register$','app.views.register',name='register'),

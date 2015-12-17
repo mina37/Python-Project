@@ -6,11 +6,22 @@
     <title>Register</title>
 </head>
 <body>
+  
     <h1>Registeration</h1>
+    <h2>{{res}}</h2>
+    <ul>
+        {% for p in per %}
+        <li>{{p.uname}}</li>
+        {%endfor%}
+    </ul>
+    
+
     <form method="post">
+
         {%csrf_token%}
         {{form.as_p}}
         <button type="submit">Register</button>
+
     </form>
 
 </body>
