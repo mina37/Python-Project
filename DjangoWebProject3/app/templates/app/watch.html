@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+{% load static %} <!-- New line -->
+
+<html>
+
+    <head>
+        <title>Share</title>
+    </head>
+
+    <body>
+        <img src="../../static/{{bold}}.jpg" alt="Picture of Rango" />
+        <ul>
+        {%for c in comm%}
+            <li>
+                <p>{{c.comment}}</p>
+                <p>{{c.uname}}</p>
+                </li>
+        {%endfor%}
+         </ul>
+        <form method="post">
+
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">comment</button>
+
+    </form>
+    </body>
+
+</html>
