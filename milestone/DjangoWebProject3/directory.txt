@@ -1,0 +1,1 @@
+C:\Users\Mina37\Documents\Visual Studio 2015\Projects\DjangoWebProject3\DjangoWebProject3\env\Lib\site-packages\django\contrib\admin\static
